@@ -14,17 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArchieAndrews.PrefabBrush.PB_SaveObject
   prefabList: []
   prefabData:
-  - prefab: {fileID: 3805167923901650738, guid: df8b3bdf79074e4418c6a33b7f907188, type: 3}
+  - prefab: {fileID: 7248066088260280039, guid: f9dba96dbde813d4cb3816e83af1ec94,
+      type: 3}
     selected: 1
   paintType: 0
-  brushSize: 100
+  brushSize: 2.44
   minBrushSize: 0.1
-  maxBrushSize: 100
-  paintDeltaDistance: 3
-  maxPaintDeltaDistance: 10
+  maxBrushSize: 20
+  paintDeltaDistance: 0.4
+  maxPaintDeltaDistance: 3
   minPaintDeltaDistance: 0.1
-  prefabsPerStroke: 20
-  maxprefabsPerStroke: 50
+  prefabsPerStroke: 1
+  maxprefabsPerStroke: 20
   minprefabsPerStroke: 1
   spawnHeight: 10
   addRigidbodyToPaintedPrefab: 1
@@ -37,7 +38,7 @@ MonoBehaviour:
   chainPivotAxis: 0
   chainDirection: 0
   requiredTagMask: 0
-  requiredLayerMask: 8
+  requiredLayerMask: 1
   minRequiredSlope: 0
   maxRequiredSlope: 0
   prefabOriginOffset: {x: 0, y: 0, z: 0}
