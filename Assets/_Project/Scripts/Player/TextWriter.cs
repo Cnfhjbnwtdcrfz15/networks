@@ -35,7 +35,7 @@ namespace MiktoGames
                     if (_index >= _textToWrite.Length)
                     {
                         _textElement = null;
-                        Debug.Log("DialogEnd");
+                        Debug.Log("Конец текста");
 
                         return;
                     }
