@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿// PlayerController.cs
+using UnityEngine;
 
 namespace MiktoGames
 {
@@ -23,14 +24,20 @@ namespace MiktoGames
         [SerializeField] private float _gravity = 20.0f;
         [SerializeField] private float _timeToRunning = 2.0f;
 
+        [Space(20)]
+        [Header("Параметры управления")]
         public bool CanMove = true;
         public bool CanRunning = true;
+        public bool CanCrouch = true;
+        public bool CanRotateCamera = true;
+        public bool CanClimbing = false;
+        public bool CanJump = true;
 
         [Space(20)]
         [Header("Взбирание")]
         [SerializeField] private bool _canClimbing = true;
         [SerializeField, Range(1, 25)] private float _speed = 2f;
-        private bool _isClimbing = false;
+        [SerializeField] private LayerMask _ladderLayer;
 
         [Space(20)]
         [Header("Спрятать руки")]
@@ -65,10 +72,13 @@ namespace MiktoGames
         void Start()
         {
             CharacterController = GetComponent<CharacterController>();
-            if (Items == null && GetComponent<ItemChange>()) Items = GetComponent<ItemChange>();
+            if (Items == null && GetComponent<ItemChange>())
+                Items = GetComponent<ItemChange>();
+
             _cam = GetComponentInChildren<Camera>();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
             _installCroughHeight = CharacterController.height;
             _installCameraMovement = Camera.localPosition;
             _installFOV = _cam.fieldOfView;
@@ -82,28 +92,39 @@ namespace MiktoGames
             RaycastHit CroughCheck;
             RaycastHit ObjectCheck;
 
-            if (!CharacterController.isGrounded && !_isClimbing)
+            if (!CharacterController.isGrounded && !CanClimbing)
                 _moveDirection.y -= _gravity * Time.deltaTime;
 
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
-            _isRunning = !_isCrough ? CanRunning ? Input.GetKey(KeyCode.LeftShift) : false : false;
-            Vertical = CanMove ? (_isRunning ? _runningValue : _walkingValue) * Input.GetAxis("Vertical") : 0;
-            Horizontal = CanMove ? (_isRunning ? _runningValue : _walkingValue) * Input.GetAxis("Horizontal") : 0;
-            if (_isRunning) _runningValue = Mathf.Lerp(_runningValue, _runingSpeed, _timeToRunning * Time.deltaTime);
-            else _runningValue = _walkingValue;
+
+            _isRunning = !_isCrough
+                         ? CanRunning && Input.GetKey(KeyCode.LeftShift)
+                         : false;
+
+            Vertical = CanMove
+                         ? (_isRunning ? _runningValue : _walkingValue) * Input.GetAxis("Vertical")
+                         : 0;
+            Horizontal = CanMove
+                         ? (_isRunning ? _runningValue : _walkingValue) * Input.GetAxis("Horizontal")
+                         : 0;
+
+            _runningValue = _isRunning
+                            ? Mathf.Lerp(_runningValue, _runingSpeed, _timeToRunning * Time.deltaTime)
+                            : _walkingValue;
+
             float movementDirectionY = _moveDirection.y;
             _moveDirection = (forward * Vertical) + (right * Horizontal);
 
-            if (Input.GetButton("Jump") && CanMove && CharacterController.isGrounded && !_isClimbing)
+            if (Input.GetButton("Jump") && CanMove && CanJump && CharacterController.isGrounded && !CanClimbing)
                 _moveDirection.y = _jumpSpeed;
             else
                 _moveDirection.y = movementDirectionY;
 
             CharacterController.Move(_moveDirection * Time.deltaTime);
-            _moving = Horizontal < 0 || Vertical < 0 || Horizontal > 0 || Vertical > 0 ? true : false;
+            _moving = Horizontal != 0 || Vertical != 0;
 
-            if (Cursor.lockState == CursorLockMode.Locked && CanMove)
+            if (Cursor.lockState == CursorLockMode.Locked && CanRotateCamera)
             {
                 _lookvertical = -Input.GetAxis("Mouse Y");
                 _lookhorizontal = Input.GetAxis("Mouse X");
@@ -113,32 +134,52 @@ namespace MiktoGames
                 Camera.transform.localRotation = Quaternion.Euler(_rotationX, 0, 0);
                 transform.rotation *= Quaternion.Euler(0, _lookhorizontal * _lookSpeed, 0);
 
-                if (_isRunning && _moving) _cam.fieldOfView = Mathf.Lerp(_cam.fieldOfView, _runningFOV, _speedToFOV * Time.deltaTime);
-                else _cam.fieldOfView = Mathf.Lerp(_cam.fieldOfView, _installFOV, _speedToFOV * Time.deltaTime);
+                if (CanMove && _isRunning && _moving)
+                    _cam.fieldOfView = Mathf.Lerp(_cam.fieldOfView, _runningFOV, _speedToFOV * Time.deltaTime);
+                else
+                    _cam.fieldOfView = Mathf.Lerp(_cam.fieldOfView, _installFOV, _speedToFOV * Time.deltaTime);
             }
 
-            if (Input.GetKey(_croughKey))
+            if (CanCrouch)
             {
-                _isCrough = true;
-                float Height = Mathf.Lerp(CharacterController.height, _croughHeight, 5 * Time.deltaTime);
-                CharacterController.height = Height;
-                _walkingValue = Mathf.Lerp(_walkingValue, CroughSpeed, 6 * Time.deltaTime);
-
-            }
-            else if (!Physics.Raycast(GetComponentInChildren<Camera>().transform.position, transform.TransformDirection(Vector3.up), out CroughCheck, 0.8f, 1))
-            {
-                if (CharacterController.height != _installCroughHeight)
+                if (Input.GetKey(_croughKey))
                 {
-                    _isCrough = false;
-                    float Height = Mathf.Lerp(CharacterController.height, _installCroughHeight, 6 * Time.deltaTime);
-                    CharacterController.height = Height;
-                    _walkingValue = Mathf.Lerp(_walkingValue, _walkingSpeed, 4 * Time.deltaTime);
+                    _isCrough = true;
+                    float height = Mathf.Lerp(CharacterController.height, _croughHeight, 5 * Time.deltaTime);
+                    CharacterController.height = height;
+                    _walkingValue = Mathf.Lerp(_walkingValue, CroughSpeed, 6 * Time.deltaTime);
+                }
+                else if (!Physics.Raycast(
+                    GetComponentInChildren<Camera>().transform.position,
+                    transform.TransformDirection(Vector3.up),
+                    out CroughCheck, 0.8f, 1))
+                {
+                    if (CharacterController.height != _installCroughHeight)
+                    {
+                        _isCrough = false;
+                        float height = Mathf.Lerp(CharacterController.height, _installCroughHeight, 6 * Time.deltaTime);
+                        CharacterController.height = height;
+                        _walkingValue = Mathf.Lerp(_walkingValue, _walkingSpeed, 4 * Time.deltaTime);
+                    }
                 }
             }
-
-            if(_wallDistance != Physics.Raycast(GetComponentInChildren<Camera>().transform.position, transform.TransformDirection(Vector3.forward), out ObjectCheck, _hideDistance, _layerMaskInt) && _canHideDistanceWall)
+            else
             {
-                _wallDistance = Physics.Raycast(GetComponentInChildren<Camera>().transform.position, transform.TransformDirection(Vector3.forward), out ObjectCheck, _hideDistance, _layerMaskInt);
+                if (CharacterController.height != _installCroughHeight)
+                    CharacterController.height = _installCroughHeight;
+                _isCrough = false;
+            }
+
+            if (_wallDistance != Physics.Raycast(
+                GetComponentInChildren<Camera>().transform.position,
+                transform.TransformDirection(Vector3.forward),
+                out ObjectCheck, _hideDistance, _layerMaskInt)
+                && _canHideDistanceWall)
+            {
+                _wallDistance = Physics.Raycast(
+                    GetComponentInChildren<Camera>().transform.position,
+                    transform.TransformDirection(Vector3.forward),
+                    out ObjectCheck, _hideDistance, _layerMaskInt);
                 Items._animator.SetBool("Hide", _wallDistance);
                 Items._definiteHide = _wallDistance;
             }
@@ -146,10 +187,10 @@ namespace MiktoGames
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Ladder" && _canClimbing)
-            { 
+            if (((1 << other.gameObject.layer) & _ladderLayer) != 0 && _canClimbing)
+            {
                 CanRunning = false;
-                _isClimbing = true;
+                CanClimbing = true;
                 _walkingValue /= 2;
                 Items.Hide(true);
             }
@@ -157,16 +198,19 @@ namespace MiktoGames
 
         private void OnTriggerStay(Collider other)
         {
-            if (other.tag == "Ladder" && _canClimbing)
-                _moveDirection = new Vector3(0, Input.GetAxis("Vertical") * _speed * (-Camera.localRotation.x / 1.7f), 0);
+            if (((1 << other.gameObject.layer) & _ladderLayer) != 0 && _canClimbing)
+                _moveDirection = new Vector3(
+                    0,
+                    Input.GetAxis("Vertical") * _speed * (-Camera.localRotation.x / 1.7f),
+                    0);
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.tag == "Ladder" && _canClimbing)
+            if (((1 << other.gameObject.layer) & _ladderLayer) != 0 && _canClimbing)
             {
                 CanRunning = true;
-                _isClimbing = false;
+                CanClimbing = false;
                 _walkingValue *= 2;
                 Items._animator.SetBool("Hide", false);
                 Items.Hide(false);

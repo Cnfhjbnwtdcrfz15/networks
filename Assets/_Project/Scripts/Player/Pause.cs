@@ -19,7 +19,6 @@ namespace MiktoGames
                 if (_menuPanel.activeInHierarchy)
                 {
                     _menuPanel.SetActive(false);
-                    _player.CanMove = true;
                     Cursor.visible = false;
                     Cursor.lockState = CursorLockMode.Locked;
                     Time.timeScale = 1.0f;
@@ -28,7 +27,6 @@ namespace MiktoGames
                 else
                 {
                     _menuPanel.SetActive(true);
-                    _player.CanMove = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                     Time.timeScale = 0.0f;

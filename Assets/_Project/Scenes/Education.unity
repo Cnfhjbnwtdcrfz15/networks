@@ -127,11 +127,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 180131446952526722, guid: a22f7d6fa8863944fa67689d0be30c17,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4100293154669542279, guid: a22f7d6fa8863944fa67689d0be30c17,
         type: 3}
       propertyPath: m_Pivot.x
@@ -232,11 +227,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6805267517725481461, guid: a22f7d6fa8863944fa67689d0be30c17,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8052001538370088575, guid: a22f7d6fa8863944fa67689d0be30c17,
         type: 3}
       propertyPath: _player
@@ -248,15 +238,9 @@ PrefabInstance:
       value: CanvasEducation
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 6805267517725481461, guid: a22f7d6fa8863944fa67689d0be30c17, type: 3}
-    - {fileID: 4617825537055798037, guid: a22f7d6fa8863944fa67689d0be30c17, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8375844137910905081, guid: a22f7d6fa8863944fa67689d0be30c17,
-        type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 553841825}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a22f7d6fa8863944fa67689d0be30c17, type: 3}
 --- !u!1 &77206371
 GameObject:
@@ -917,38 +901,30 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 1200463931}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &553841821 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8375844137910905081, guid: a22f7d6fa8863944fa67689d0be30c17,
-    type: 3}
-  m_PrefabInstance: {fileID: 42362466}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &553841823 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1972669460763067465, guid: a22f7d6fa8863944fa67689d0be30c17,
     type: 3}
   m_PrefabInstance: {fileID: 42362466}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553841821}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!114 &553841825
+--- !u!114 &553841825 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5457890844025070989, guid: a22f7d6fa8863944fa67689d0be30c17,
+    type: 3}
+  m_PrefabInstance: {fileID: 42362466}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553841821}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e325a21046427e04988337db9c4d5e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TypewriterTMP
-  _textUI: {fileID: 553841823}
-  CharDelay: 0.05
 --- !u!1 &637718843
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,5 +3191,5 @@ SceneRoots:
   - {fileID: 1383744729}
   - {fileID: 320736401}
   - {fileID: 637718845}
-  - {fileID: 1200463931}
   - {fileID: 42362466}
+  - {fileID: 1200463931}

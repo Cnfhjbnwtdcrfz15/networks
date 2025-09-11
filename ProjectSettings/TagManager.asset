@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ladder
   - PathCube
+  - WallCube
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - Water
   - UI
   - Hands
-  - 
+  - Ladder
   - 
   - 
   - 

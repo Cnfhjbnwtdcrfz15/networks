@@ -1,17 +1,20 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-public class TriggerRelayDS : MonoBehaviour
+public class TriggerRelay : MonoBehaviour
 {
-    [SerializeField] private DialogueSystem _tutorialManager;
-    [SerializeField] private int _stepIndex;
+    [SerializeField] private bool _destroyAfterTrigger = true;
+    [SerializeField] private string _requiredTag = "GameController";
+    [SerializeField] private UnityEvent _onTriggerEnter;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("GameController"))
+        if (other.CompareTag(_requiredTag))
         {
-            _tutorialManager.StartStep(_stepIndex);
-        }
+            _onTriggerEnter?.Invoke();
 
-        Destroy(gameObject);
+            if (_destroyAfterTrigger)
+                Destroy(gameObject);
+        }
     }
 }
