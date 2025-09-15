@@ -21,7 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_TriPrism
-  m_Shader: {fileID: -6465566751694194690, guid: 505adcfe225c9474e8589edf73a5cc3f, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 505adcfe225c9474e8589edf73a5cc3f,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -116,10 +117,12 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 0
     - _DstBlend: 10
+    - _DstBlend2: 10
     - _Emissive_Int: 15
     - _Emissive_Intensity: 1
     - _EnableBlendModePreserveSpecularLighting: 0
     - _EnableFogOnTransparent: 1
+    - _ExcludeFromTUAndAA: 0
     - _FreshLineStrength: 1
     - _FreshLine_Amount: 15
     - _FreshLine_Mask: 1
@@ -129,10 +132,13 @@ Material:
     - _Fresnel_Power: 5
     - _Hologram_Speed: 2
     - _Hologram_Texture_Tiling: 800
+    - _MaterialID: 1
+    - _MaterialTypeMask: 2
     - _Normal_Intensity: 1
     - _Opacity_Mask: 1
     - _Opacity_Time: 1
     - _OpaqueCullMode: 2
+    - _PerPixelSorting: 0
     - _Power: 0
     - _QueueControl: 1
     - _QueueOffset: 0
@@ -146,21 +152,22 @@ Material:
     - _Rotation: 180
     - _RotationAnim: 0
     - _Speed: 1
-    - _SrcBlend: 5
+    - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 0
     - _StencilRefDistortionVec: 4
     - _StencilRefGBuffer: 2
     - _StencilRefMV: 32
     - _StencilWriteMask: 6
-    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDepth: 9
     - _StencilWriteMaskDistortionVec: 4
-    - _StencilWriteMaskGBuffer: 14
-    - _StencilWriteMaskMV: 40
+    - _StencilWriteMaskGBuffer: 15
+    - _StencilWriteMaskMV: 41
     - _SupportDecals: 1
     - _Surface: 1
     - _SurfaceType: 1
     - _Tiling: 1
+    - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
@@ -178,7 +185,7 @@ Material:
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 3
     - _ZTestTransparent: 4
-    - _ZWrite: 0
+    - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
     - _BaseColor_Map_Tint: {r: 1, g: 1, b: 1, a: 0}

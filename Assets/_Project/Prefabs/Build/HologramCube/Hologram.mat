@@ -173,7 +173,7 @@ Material:
     - _Anisotropy: 0
     - _BlendMode: 0
     - _CoatMask: 0
-    - _ColorGlitchAffect: 0.5
+    - _ColorGlitchAffect: 0.597
     - _ColorGlitchFeature: 0
     - _CullMode: 2
     - _CullModeForward: 2

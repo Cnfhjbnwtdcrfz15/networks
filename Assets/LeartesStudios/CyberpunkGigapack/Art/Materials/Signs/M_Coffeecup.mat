@@ -21,13 +21,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Coffeecup
-  m_Shader: {fileID: -6465566751694194690, guid: 505adcfe225c9474e8589edf73a5cc3f, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 505adcfe225c9474e8589edf73a5cc3f,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _ALPHATEST_ON
   - _DISABLE_SSR_TRANSPARENT
-  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -35,7 +34,6 @@ Material:
   m_CustomRenderQueue: 2225
   stringTagMap:
     MotionVector: User
-    RenderType: Transparent
   disabledShaderPasses:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
@@ -126,11 +124,13 @@ Material:
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
-    - _DstBlend: 10
+    - _DstBlend: 0
+    - _DstBlend2: 0
     - _Emissive_Int: 2
     - _Emissive_Intensity: 2
     - _EnableBlendModePreserveSpecularLighting: 0
     - _EnableFogOnTransparent: 1
+    - _ExcludeFromTUAndAA: 0
     - _FreshLineStrength: 1
     - _FreshLine_Amount: 4.14
     - _FreshLine_Mask: 0.2
@@ -140,10 +140,13 @@ Material:
     - _Fresnel_Power: 3
     - _Hologram_Speed: 5
     - _Hologram_Texture_Tiling: 800
+    - _MaterialID: 1
+    - _MaterialTypeMask: 2
     - _Normal_Intensity: 1
     - _Opacity_Mask: 0
     - _Opacity_Time: 1
     - _OpaqueCullMode: 2
+    - _PerPixelSorting: 0
     - _Power: 20
     - _QueueControl: 1
     - _QueueOffset: 0
@@ -156,21 +159,22 @@ Material:
     - _RequireSplitLighting: 0
     - _Rotation: 180
     - _Speed: 0.8
-    - _SrcBlend: 5
+    - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 8
     - _StencilRefDistortionVec: 4
     - _StencilRefGBuffer: 10
     - _StencilRefMV: 40
     - _StencilWriteMask: 6
-    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDepth: 9
     - _StencilWriteMaskDistortionVec: 4
-    - _StencilWriteMaskGBuffer: 14
-    - _StencilWriteMaskMV: 40
+    - _StencilWriteMaskGBuffer: 15
+    - _StencilWriteMaskMV: 41
     - _SupportDecals: 1
     - _Surface: 1
     - _SurfaceType: 0
     - _Tiling: 1
+    - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
@@ -187,7 +191,7 @@ Material:
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
-    - _ZWrite: 0
+    - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
     - _BaseColor_Map_Tint: {r: 1, g: 1, b: 1, a: 0}

@@ -34,11 +34,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_DiceBlack
-  m_Shader: {fileID: -6465566751694194690, guid: 35521403df3af304397dbdc04f8b53ec, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 35521403df3af304397dbdc04f8b53ec,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _ALPHATEST_ON
   - _DISABLE_SSR_TRANSPARENT
   - _ENABLE_FOG_ON_TRANSPARENT
   - _SURFACE_TYPE_TRANSPARENT
@@ -133,6 +133,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: dc21a92156c21b64eb80be1c8bee7919, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_7e4504534ba0477ebb5e67eb0cc69cc6_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: dc21a92156c21b64eb80be1c8bee7919, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_95eb91478d884bb18f2460af1994d5cc_Texture_1:
         m_Texture: {fileID: 2800000, guid: dc21a92156c21b64eb80be1c8bee7919, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -213,11 +217,13 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 10
+    - _DstBlend2: 10
     - _EmissiveFlickering: 0
     - _Emissive_Int: 1
     - _Emissive_Intensity: 1
     - _EnableBlendModePreserveSpecularLighting: 0
     - _EnableFogOnTransparent: 1
+    - _ExcludeFromTUAndAA: 0
     - _FreshLine_Amount: 1
     - _FreshLine_Mask: 0.2
     - _FreshLine_Speed: 1
@@ -228,6 +234,8 @@ Material:
     - _Hologram_Speed: 0
     - _Hologram_Texture_Tiling: 0
     - _InnerEmissiveStrenght: 0
+    - _MaterialID: 1
+    - _MaterialTypeMask: 2
     - _Minimum_Opacity: 0
     - _MovingDots: 0
     - _MovingStripes: 0
@@ -236,6 +244,7 @@ Material:
     - _OuterEmissiveStrenght: 0
     - _Panning_Speed_X: 50
     - _Panning_Speed_Y: 50
+    - _PerPixelSorting: 0
     - _Power: 1
     - _QueueControl: 1
     - _QueueOffset: 0
@@ -250,17 +259,17 @@ Material:
     - _SecondaryEmissiveTiling: 0
     - _SecondaryEmissive_1: 0
     - _Speed: 0
-    - _SrcBlend: 5
+    - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 0
     - _StencilRefDistortionVec: 4
     - _StencilRefGBuffer: 2
     - _StencilRefMV: 32
     - _StencilWriteMask: 6
-    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDepth: 9
     - _StencilWriteMaskDistortionVec: 4
-    - _StencilWriteMaskGBuffer: 14
-    - _StencilWriteMaskMV: 40
+    - _StencilWriteMaskGBuffer: 15
+    - _StencilWriteMaskMV: 41
     - _StripesRotation: 0
     - _Stripes_Number: 4
     - _Stripes_U_Tiling: 1
@@ -272,6 +281,7 @@ Material:
     - _Surface: 1
     - _SurfaceType: 1
     - _TimeInt: 0.1
+    - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0

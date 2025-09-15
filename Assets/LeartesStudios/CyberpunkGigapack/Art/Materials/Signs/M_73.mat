@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_73
-  m_Shader: {fileID: -6465566751694194690, guid: 505adcfe225c9474e8589edf73a5cc3f, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 505adcfe225c9474e8589edf73a5cc3f,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -103,10 +104,12 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 10
+    - _DstBlend2: 10
     - _Emissive_Int: 20
     - _Emissive_Intensity: 1
     - _EnableBlendModePreserveSpecularLighting: 0
     - _EnableFogOnTransparent: 1
+    - _ExcludeFromTUAndAA: 0
     - _FreshLineStrength: 1
     - _FreshLine_Amount: 1
     - _FreshLine_Mask: 1
@@ -116,11 +119,14 @@ Material:
     - _Fresnel_Power: 5
     - _Hologram_Speed: 0.2
     - _Hologram_Texture_Tiling: 1200
+    - _MaterialID: 1
+    - _MaterialTypeMask: 2
     - _Normal_Intensity: 1
     - _Opacity_Mask: 0
     - _Opacity_Time: 1
     - _Opacity_time: 1
     - _OpaqueCullMode: 2
+    - _PerPixelSorting: 0
     - _Power: 0
     - _QueueControl: 1
     - _QueueOffset: 0
@@ -141,14 +147,15 @@ Material:
     - _StencilRefGBuffer: 2
     - _StencilRefMV: 32
     - _StencilWriteMask: 6
-    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDepth: 9
     - _StencilWriteMaskDistortionVec: 4
-    - _StencilWriteMaskGBuffer: 14
-    - _StencilWriteMaskMV: 40
+    - _StencilWriteMaskGBuffer: 15
+    - _StencilWriteMaskMV: 41
     - _SupportDecals: 1
     - _Surface: 1
     - _SurfaceType: 1
     - _Tiling: 1
+    - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0

@@ -34,7 +34,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_EmissiveRedTwoSided4
-  m_Shader: {fileID: -6465566751694194690, guid: ae1f4c0058576bd4bb3044965ee0bcdf, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: ae1f4c0058576bd4bb3044965ee0bcdf,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -115,7 +116,15 @@ Material:
         m_Texture: {fileID: 2800000, guid: 655c3769aadc5d8429777c5f971d6a6e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_30ab9eadbe0d42c7aac5b9e0c9a387cf_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 655c3769aadc5d8429777c5f971d6a6e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_3d9e990591674adc84cf090629202256_Texture_1:
+        m_Texture: {fileID: 2800000, guid: dc21a92156c21b64eb80be1c8bee7919, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_3d9e990591674adc84cf090629202256_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: dc21a92156c21b64eb80be1c8bee7919, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -209,15 +218,20 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 10
+    - _DstBlend2: 10
     - _Emissive_Intensity: 0.05
     - _EnableBlendModePreserveSpecularLighting: 0
     - _EnableFogOnTransparent: 1
+    - _ExcludeFromTUAndAA: 0
     - _Hologram_Speed: 5
     - _Hologram_Texture_Tiling: 100
     - _Hue: 0
+    - _MaterialID: 1
+    - _MaterialTypeMask: 2
     - _Min_Opacity: 0.02
     - _OpacityInt: 1
     - _OpaqueCullMode: 2
+    - _PerPixelSorting: 0
     - _QueueControl: 1
     - _QueueOffset: 0
     - _RayTracing: 0
@@ -238,14 +252,15 @@ Material:
     - _StencilRefGBuffer: 2
     - _StencilRefMV: 32
     - _StencilWriteMask: 6
-    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDepth: 9
     - _StencilWriteMaskDistortionVec: 4
-    - _StencilWriteMaskGBuffer: 14
-    - _StencilWriteMaskMV: 40
+    - _StencilWriteMaskGBuffer: 15
+    - _StencilWriteMaskMV: 41
     - _Strips_Tiling: 3
     - _SupportDecals: 1
     - _Surface: 0
     - _SurfaceType: 1
+    - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
@@ -269,8 +284,10 @@ Material:
     m_Colors:
     - Color_A7DF1144: {r: 0, g: 0, b: 0, a: 0}
     - Color_AF14EE56: {r: 1, g: 1, b: 1, a: 0}
-    - Color_af892e36b16742d1b5a31e2fb9c43b3d: {r: 0.9686275, g: 0.6156863, b: 0.29803923, a: 1}
-    - Color_f6973748622e48d389fed870a51f8d37: {r: 0.9686275, g: 0.6156863, b: 0.29803923, a: 0}
+    - Color_af892e36b16742d1b5a31e2fb9c43b3d: {r: 0.9686275, g: 0.6156863, b: 0.29803923,
+        a: 1}
+    - Color_f6973748622e48d389fed870a51f8d37: {r: 0.9686275, g: 0.6156863, b: 0.29803923,
+        a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _Emissive_Color: {r: 25.597721, g: 29.031288, b: 50.71698, a: 1}
