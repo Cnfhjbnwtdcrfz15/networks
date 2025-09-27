@@ -21,7 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_CoffeeShop_Emissive
-  m_Shader: {fileID: -6465566751694194690, guid: ec599afa9f7f66c46926e48dae017e81, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: ec599afa9f7f66c46926e48dae017e81,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -109,7 +110,7 @@ Material:
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 0
     - _DstBlend2: 0
-    - _Emissive_Intensity: 3
+    - _Emissive_Intensity: 10
     - _EnableBlendModePreserveSpecularLighting: 0
     - _EnableFogOnTransparent: 1
     - _ExcludeFromTUAndAA: 0

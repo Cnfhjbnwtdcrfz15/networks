@@ -34,7 +34,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_CP_Car01_EX02
-  m_Shader: {fileID: -6465566751694194690, guid: 9e268ef03d430f64d94641ec1f51f2d7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 9e268ef03d430f64d94641ec1f51f2d7,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
